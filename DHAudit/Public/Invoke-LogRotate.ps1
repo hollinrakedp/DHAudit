@@ -4,7 +4,7 @@ function Invoke-LogRotate {
     Rotate a Windows event log by creating a backup and clearing the log.
 
     .DESCRIPTION
-    This function will rotate the specified Windows Event log(s). It creates a backup of the existing events by saving the log to the specified location. Once the backup is created the log(s) will be cleared. If it cannot create a backup of an event log, the log will not be cleared. The name of each log backed up is in the following format: yyyyMMdd_COMPUTERNAME_LogName.evtx
+    This function will rotate the specified Windows Event log(s). It creates a backup of the existing events by saving the log to the specified location. Once the backup is created the log(s) will be cleared. If it cannot create a backup of an event log, the log will not be cleared. If the log file already exists in the backup path, the backup will fail and the log will not be cleared. The name of each log backed up is in the following format: yyyyMMdd_COMPUTERNAME_LogName.evtx
 
     It is also possible to run this function as a scheduled task. To create this scheduled task, use the '-RegisterScheduledTask' parameter to create the scheduled task. The scheduled task will run weekly on Mondays at 1am as SYSTEM. Ensure the module containing this function is located in the PSModulePath or the task will fail to run properly.
     
@@ -12,10 +12,10 @@ function Invoke-LogRotate {
 
     .NOTES
     Name         - Invoke-LogRotate
-    Version      - 0.7
+    Version      - 0.8
     Author       - Darren Hollinrake
     Date Created - 2021-12-28
-    Date Updated - 2021-12-31
+    Date Updated - 2022-01-28
 
     .PARAMETER LogName
     Specify the name of one or more logs to rotate. If this parameter is not specified, it will default to rotating the following logs: Application, Security, and System
