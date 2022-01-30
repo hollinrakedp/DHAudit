@@ -49,6 +49,8 @@ function Invoke-LogRotate {
     Param(
         [Parameter(ParameterSetName = 'LogRotate',
             ValueFromPipelineByPropertyName)]
+        [Parameter(ParameterSetName = 'LogClear',
+            ValueFromPipelineByPropertyName)]
         [Parameter(
             ParameterSetName = 'AddScheduledTask',
             ValueFromPipelineByPropertyName,
@@ -57,7 +59,7 @@ function Invoke-LogRotate {
         [Parameter(ParameterSetName = 'LogRotate',
             ValueFromPipelineByPropertyName)]
         [string]$BackupPath = "C:\Audit\Archive",
-        [Parameter(ParameterSetName = 'LogRotate',
+        [Parameter(ParameterSetName = 'LogClear',
             ValueFromPipelineByPropertyName)]
         [switch]$NoBackup,
         [Parameter(ParameterSetName = 'AddScheduledTask',
