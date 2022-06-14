@@ -55,7 +55,6 @@ function Get-NTFSFolderPermission {
         [int]$Depth = 0
     )
 
-    $Report = @()
     $Acl = Get-Acl -Path $Path
     foreach ($Access in $Acl.Access) {
         $Properties = [PSCustomObject]@{
@@ -65,7 +64,6 @@ function Get-NTFSFolderPermission {
             Permission = $Access.FileSystemRights
             Inherited  = $Access.IsInherited
         }
-        $Report += $Properties
         $Properties
     }
     switch ($PsCmdlet.ParameterSetName) {
@@ -81,7 +79,6 @@ function Get-NTFSFolderPermission {
                         Permission = $Access.FileSystemRights
                         Inherited  = $Access.IsInherited
                     }
-                    $Report += $Properties
                     $Properties
                 }
             }
