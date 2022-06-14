@@ -7,7 +7,7 @@ $manifest = @{
     Author            = 'Darren Hollinrake'
     Company           = 'Darren Hollinrake'
     Description       = 'Collection of functions for configuration and management of auditing a Windows system.'
-    ModuleVersion     = '0.2'
+    ModuleVersion     = '0.3'
     FunctionsToExport = $FunctionsToExport
 }
 
